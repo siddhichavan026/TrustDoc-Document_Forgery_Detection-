@@ -1,0 +1,5 @@
+model,synthetic_test_auc,real_test_auc
+U-Net (ResNet34),0.842,0.457
+ResNet50,0.585,0.506
+EfficientNet-B0,0.654,0.479
+Small CNN,0.496,0.498
