@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrustDoc</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="brand"><span class="logo">T</span> TrustDoc <small>document forgery detection</small></div>
+    <div class="muted" id="stats">{{ stats.total }} checked · {{ stats.forged }} flagged</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <div id="drop" class="drop" tabindex="0">
+      <input type="file" id="file" accept="image/png,image/jpeg,image/bmp,image/webp" hidden>
+      <p class="big">Drop a receipt image here, or click to choose</p>
+      <p class="muted">JPG or PNG, up to 12 MB. Analysis takes a few seconds.</p>
+    </div>
+    <div id="busy" class="busy" hidden><span class="spin"></span> Analyzing... (first run can take longer)</div>
+    <div id="error" class="error" hidden></div>
+  </section>
+
+  <section id="result" class="card" hidden>
+    <div class="verdict-row">
+      <div id="badge" class="badge"></div>
+      <div class="metrics">
+        <div><span class="k">Confidence</span><span class="v" id="m-conf"></span></div>
+        <div><span class="k">Forgery score</span><span class="v" id="m-score"></span></div>
+        <div><span class="k">Suspicious regions</span><span class="v" id="m-reg"></span></div>
+        <div><span class="k">Time</span><span class="v" id="m-sec"></span></div>
+      </div>
+    </div>
+    <p class="note" id="note"></p>
+    <div class="tabs" id="tabs">
+      <button data-k="overlay" class="on">Suspicious regions</button>
+      <button data-k="heatmap">Probability map</button>
+      <button data-k="gradcam">Model attention (Grad-CAM)</button>
+      <button data-k="original">Original</button>
+    </div>
+    <div class="imgbox"><img id="view" alt="analysis result"></div>
+  </section>
+
+  <section class="card">
+    <h2>History</h2>
+    <table id="hist">
+      <thead><tr><th>#</th><th>When</th><th>File</th><th>Verdict</th><th>Conf.</th><th>Regions</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="muted" id="empty" hidden>No analyses yet.</p>
+  </section>
+
+  <section class="card small">
+    <h2>About the numbers</h2>
+    <p>Measured on held-out <b>synthetic</b> test receipts (546 images): 71% of forged receipts caught, 14% of authentic
+    receipts wrongly flagged. "Confidence" is the observed accuracy for this score range, not a guarantee for your file.
+    The model was trained on computer-made edits (replaced text, copy-move, splice, erase) and has <b>not</b> been shown to
+    detect real-world forgeries. Use it as a screening aid, not as proof.</p>
+  </section>
+</main>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
