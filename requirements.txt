@@ -1,0 +1,12 @@
+# TrustDoc web application (CPU). Python 3.11 recommended.
+# Install with:  pip install -r requirements.txt
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
+segmentation-models-pytorch
+grad-cam
+opencv-python-headless
+numpy
+pillow
+flask
+matplotlib

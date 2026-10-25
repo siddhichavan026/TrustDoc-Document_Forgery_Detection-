@@ -1,0 +1,30 @@
+# Virtual environments (never commit these)
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# App runtime data (history database and uploaded/result images)
+data/
+
+# Large model files: see the note below
+weights/*.pt
+weights/*.pth
+
+# Results you don't need in the repository
+results/demo_out/
+results/report/*.pdf
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
