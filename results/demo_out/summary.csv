@@ -1,0 +1,12 @@
+file,verdict,score,confidence,regions,seconds,gradcam_error
+real_authentic_X00016469619.png,Authentic,0.0005,0.75,0,4.68,
+real_authentic_X00016469620.png,Authentic,0.0026,0.75,0,2.34,
+real_forged_X51005230616.png,Authentic,0.0008,0.75,0,2.28,
+real_forged_X51005433556.png,Authentic,0.0009,0.75,0,2.38,
+real_forged_X51005442361.png,Authentic,0.0006,0.75,0,2.49,
+syn_authentic_b0511_a0.jpg,Authentic,0.0011,0.75,0,2.52,
+syn_authentic_b0511_a1.jpg,Authentic,0.0011,0.75,0,2.59,
+syn_authentic_b0511_a2.png,Authentic,0.0007,0.75,0,2.63,
+syn_forged_b0511_f0.jpg,Authentic,0.0008,0.75,0,2.69,
+syn_forged_b0511_f1.png,Forged,1.0,0.856,1,2.74,
+syn_forged_b0511_f2.png,Forged,1.0,0.856,3,2.64,
